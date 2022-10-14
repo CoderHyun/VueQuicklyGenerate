@@ -24,6 +24,7 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "11"
         targetCompatibility = "11"
+        options.encoding = "UTF-8"
     }
 
     patchPluginXml {
@@ -40,4 +41,11 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+}
+
+dependencies {
+    implementation("com.alibaba:fastjson:2.0.4")
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+//    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.4'
 }

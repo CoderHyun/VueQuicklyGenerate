@@ -5,18 +5,25 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Demo</name>
+    <name>VueQuicklyGenerate</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="280023382@qq.com" url="https://www.yourcompany.com">CoderHyun</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+            <h2>HelloWord And Vue3</h2>
+            <p>该插件为vue3快速生成代码插件，让你敲代码有飞一般的感觉</p><br>
+      ]]></description>
+
+    <actions>
+        <action class="com.hyun.action.VueQuicklyGenerateAction" description="Hello world">
+            <keyboard-shortcut first-keystroke="alt shift 9" keymap="$default"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+        </action>
+    </actions>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -25,6 +32,15 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+            parentId="tools"
+            instance="com.hyun.extension.VueQuicklyGenerateSettingConfiguration"
+            id="com.hyun.extension.VueQuicklyGenerateSettingConfiguration"
+            displayName="VueQuicklyGenerate"
+        />
 
+        <applicationService serviceImplementation="com.hyun.extension.VueQuicklyGenerateSetting" />
+
+        <projectService serviceImplementation="com.hyun.extension.VueQuicklyGenerateCache" />
     </extensions>
 </idea-plugin>
